@@ -1,0 +1,10 @@
+<a href="/tv-shows/add">Add a tv show</a>
+
+<ul class="shows" ng-show="shows.length">
+	<li ng-repeat="show in shows">
+		<a href="/tv-shows/{{show._id}}">
+			<!-- <h3><small>{{show.showName}}</small></h3> -->
+			<img width="200" ng-src="{{show.posterPath}}" alt="{{show.showName}}">
+		</a>
+	</li>
+</ul>

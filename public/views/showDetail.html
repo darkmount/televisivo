@@ -1,0 +1,19 @@
+<h1>{{showInformation.show.showName}}</h1>
+<img ng-src="{{showInformation.show.posterPath}}" width="300" alt="{{showInformation.show.showName}} poster">
+<p>Status: {{showInformation.show.status}}</p>
+<dl ng-show="showInformation.show.genres.length">
+	<dt>Genres:</dt>
+	<dd ng-repeat="genre in showInformation.show.genres">
+		{{genre}}
+	</dd>
+</dl>
+<p>{{showInformation.show.overview}}</p>
+
+<ul ng-show="showInformation.episodes.length">
+	<li ng-repeat="episode in showInformation.episodes">
+		<h4>{{episode.episodeName}} (<small>{{episode.seasonNumber}}-{{episode.episodeNumber}}</small>)</h4>
+		<p>{{episode.airDate | date:'yyyy-MM-dd'}}</p>
+		<p>{{episode.overview}}</p>
+		<hr>
+	</li>
+</ul>

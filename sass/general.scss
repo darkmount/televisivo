@@ -1,0 +1,17 @@
+@import "base";
+@include normalize;
+
+body {
+	background:#f5f5f5;
+	border:10px solid rgba(0,0,0,0.2);
+	font-family:$font-stack;
+	padding:5%;
+}
+
+ul.shows {
+	margin:0;
+	padding:0;
+	li {
+		@include inline-block;
+	}
+}

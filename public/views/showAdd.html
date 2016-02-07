@@ -1,0 +1,28 @@
+<h1>Add a TV Show.</h1>
+
+
+<!-- 
+'/api/search/:query' gets using request.params.query
+'api/tvshows' posts using request.body.tvdbId
+
+-->
+
+<form action="/api/tvshows" method="post">
+	<p>
+		<label for="search">Search:</label>
+		<input name="search" id="search" type="text" value="" placeholder="Search for a Tv Show">
+		<button ng-click="search($event)">Search</button>
+	</p>
+	<ul id="results" ng-show="tvshows.length">
+		<li ng-repeat="show in tvshows">
+			<input type="radio" value="{{show.id}}" name="tvdbId">
+			<h4><a href="http://thetvdb.com/?tab=series&amp;id={{show.id}}" target="_blank">{{show.seriesname}} <em ng-show="show.aliasnames">({{show.aliasnames}})</em></a></h4>
+			<p>Started on {{show.firstaired}}</p>
+			<p>{{show.overview}}</p>
+		</li>
+	</ul>
+	<p ng-show="error">{{error.message}}</p>
+	<p>
+		<input type="submit" ng-click="addShow($event)" ng-show="tvshows.length" value="Submit">
+	</p>
+</form>
